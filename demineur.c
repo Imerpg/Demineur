@@ -100,25 +100,48 @@ void jeu(int nb)
     }
 
     // Commence a jouer
-    while (/* ????????? */)
+    int mine = nb;
+    while (mine != 0)
     {
-        /* ??????? */
-    }
-    // ---------------
-
-    // Affiche le tableau
-    printf("    0  1  2  3  4  5  6  7  8  9 \n");
-    printf("    ---------------------------- \n");
-    for(int i=0; i < nb; i++)
-    {
-        printf("%d |", i);
-        for(int j=0; j < nb; j++)
+        // Affiche le tableau
+        printf("   ");
+        for (int i = 0; i < nb; i++)
         {
-
-            printf(" %c ", Tab_Mine[i][j]);
+            printf(" %d ", i);
         }
         printf("\n");
+        printf("   ");
+        for (int i = 0; i < nb; i++)
+        {
+            printf("---");
+        }
+        printf("\n");
+        for(int i=0; i < nb; i++)
+        {
+            printf("%d |", i);
+            for(int j=0; j < nb; j++)
+            {
+                printf(" %c ", Tab_Cache[i][j]);
+            }
+            printf("\n");
+        }
+        // -----------------
+
+        printf("Case ? (x y)");
+        scanf("%d %d", &x, &y);
+
+        Tab_Cache[x][y] = Tab_Mine[x][y];
+
+        if(Tab_Cache[x][y] == 'M')
+        {
+            mine = 0;
+        }
+
     }
+    
+    // ---------------
+
+    
 
 }
 
