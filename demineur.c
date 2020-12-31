@@ -100,6 +100,7 @@ void jeu(int nb)
     }
 
     // Commence a jouer
+    
     int mine = nb;
     while (mine != 0)
     {
@@ -127,10 +128,28 @@ void jeu(int nb)
         }
         // -----------------
 
-        printf("Case ? (x y)");
-        scanf("%d %d", &x, &y);
+        char casea;
 
-        Tab_Cache[x][y] = Tab_Mine[x][y];
+        printf("Case a coche ou a decouvrir ? (c ou d)");
+        scanf("%d", &casea);
+
+        switch (casea)
+        {
+        case 'd':
+            printf("Case ? (x y) ");
+            scanf("%d %d", &x, &y);
+            Tab_Cache[x][y] = Tab_Mine[x][y];
+            break;
+        
+        case 'c':
+            printf("Case a decouvrir ? (x y) ");
+            scanf("%d %d", &x, &y);
+            Tab_Cache[x][y] = 'O';
+            break;
+
+        default:
+            break;
+        }
 
         if(Tab_Cache[x][y] == 'M')
         {
