@@ -128,27 +128,11 @@ void jeu(int nb)
         }
         // -----------------
 
-        char casea = '?';
 
-        printf("Case a coche ou a decouvrir ? (c ou d)");
+        printf("\nCase ? (x y) ");
+        scanf("%d %d", &x, &y);
+        Tab_Cache[x][y] = Tab_Mine[x][y];
 
-        scanf("%c", &casea);
-
-        switch (casea)
-        {
-        case 'd':
-            printf("\nCase ? (x y) ");
-            scanf("%d %d", &x, &y);
-            Tab_Cache[x][y] = Tab_Mine[x][y];
-            break;
-        
-        case 'c':
-            printf("\nCase a decouvrir ? (x y) ");
-            scanf("%d %d", &x, &y);
-            Tab_Cache[x][y] = 'O';
-            break;
-
-        }
 
         if(Tab_Cache[x][y] == 'M')
         {
